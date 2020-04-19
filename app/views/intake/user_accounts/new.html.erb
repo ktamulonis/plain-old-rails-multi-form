@@ -1,0 +1,27 @@
+<h2>User Account Information</h2>
+ 
+<%= form_with(model: @user_account, local: true) do |f| %>
+  <% if @user_account.errors.any? %>
+    <div id="error_explanation">
+      <b><%= pluralize(@user_account.errors.count, "error") %> prohibited this user account from being saved:</b>
+ 
+      <ul>
+        <% @user_account.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
+ 
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+  </div>
+ 
+  <%= f.submit 'Save and Finish', class: 'btn btn-primary' %>
+<% end %>

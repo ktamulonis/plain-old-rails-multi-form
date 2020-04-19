@@ -1,0 +1,27 @@
+<h2>User Profile Information</h2>
+ 
+<%= form_with(model: @user_profile, local: true) do |f| %>
+  <% if @user_profile.errors.any? %>
+    <div id="error_explanation">
+      <b><%= pluralize(@user_profile.errors.count, "error") %> prohibited this user profile from being saved:</b>
+ 
+      <ul>
+        <% @user_profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <div class="form-group">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, class: 'form-control' %>
+  </div>
+ 
+  <div class="form-group">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: 'form-control' %>
+  </div>
+ 
+  <%= f.submit 'Next Step', class: 'btn btn-primary' %>
+<% end %>
